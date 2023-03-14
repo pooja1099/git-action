@@ -21,9 +21,6 @@ on:
         - cschleiden
       message:
         required: true
-      use-emoji:
-        type: boolean
-        description: Include  emojis
       environment:
         type: environment
   
@@ -45,7 +42,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Print
-      run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", ""]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
+      run: echo "${{ github.event.inputs.message }} ${{ github.event.inputs.name }}"
       # run: echo The username is ${{ inputs.username }}
   # This workflow contains a single job called "build"
   job1:
