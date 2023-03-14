@@ -12,14 +12,28 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+     inputs:
+      name:
+        type: choice
+        description: Who to greet
+        options: 
+        - monalisa
+        - cschleiden
+      message:
+        required: true
+      use-emoji:
+        type: boolean
+        description: Include  emojis
+      environment:
+        type: environment
   
-  workflow_call:
-    inputs:
-      username:
-        description: 'A username passed from the caller workflow'
-        default: 'pooja'
-        required: false
-        type: string
+  # workflow_call:
+  #   inputs:
+  #     username:
+  #       description: 'A username passed from the caller workflow'
+  #       default: 'pooja'
+  #       required: false
+  #       type: string
 
   
 
@@ -30,8 +44,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Print the input name to STDOUT
-      run: echo The username is ${{ inputs.username }}
+    - name: Print
+      run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", ""]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
+      # run: echo The username is ${{ inputs.username }}
   # This workflow contains a single job called "build"
   job1:
     # The type of runner that the job will run on
