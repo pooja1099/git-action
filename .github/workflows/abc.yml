@@ -24,11 +24,6 @@ on:
         required: true
       environment:
         type: environment
-
-  env:
-  a: ${{github.event.inputs.name}}
-  b: ${{github.event.inputs.message}}
-  c: ${{github.event.inputs.environment}}
   
   # workflow_call:
   #   inputs:
@@ -53,7 +48,7 @@ jobs:
           python-version: '3.10'
 
    
-    run: "$a"
+    run: "{{github.inputs.events.name}}"
   # This workflow contains a single job called "build"
   job1:
     # The type of runner that the job will run on
