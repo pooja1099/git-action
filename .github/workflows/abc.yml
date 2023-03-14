@@ -24,8 +24,8 @@ on:
         description: hiiiiii
         required: true
 
-  env: 
-    a: "${{github.event.inputs.name.options}}"     
+env: 
+  a: "${{github.event.inputs.name.options}}"     
   
   # workflow_call:
   #   inputs:
