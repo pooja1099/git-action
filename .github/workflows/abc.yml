@@ -20,9 +20,15 @@ on:
         - monalisa
         - cschleiden
       message:
+        description: hiiiiii
         required: true
       environment:
         type: environment
+
+  env:
+  a: ${{github.event.inputs.name}}
+  b: ${{github.event.inputs.message}}
+  c: ${{github.event.inputs.environment}}
   
   # workflow_call:
   #   inputs:
@@ -37,13 +43,17 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   greet:
+  
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Print
-      run: echo "${{ github.event.inputs.message }} ${{ github.event.inputs.name }}"
-      # run: echo The username is ${{ inputs.username }}
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+   
+    run: "$a $b"
   # This workflow contains a single job called "build"
   job1:
     # The type of runner that the job will run on
