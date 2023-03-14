@@ -61,10 +61,13 @@ jobs:
         with:
           python-version: '3.10' 
       - run: python program/test1.py
+
+      
     greet:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v3
     - name: Send greeting
       run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", ""]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
 
