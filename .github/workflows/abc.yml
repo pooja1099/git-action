@@ -17,7 +17,7 @@ on:
     inputs:
       username:
         description: 'A username passed from the caller workflow'
-        default: 'john-doe'
+        default: 'pooja'
         required: false
         type: string
 
@@ -25,6 +25,13 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Print the input name to STDOUT
+      run: echo The username is ${{ inputs.username }}
   # This workflow contains a single job called "build"
   job1:
     # The type of runner that the job will run on
@@ -65,11 +72,5 @@ jobs:
       - run: python program/test1.py
 
 
-    greet:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Print the input name to STDOUT
-      run: echo The username is ${{ inputs.username }}
+    
 
