@@ -12,10 +12,14 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-    # inputs:
-    #   myInput:
-    #     description: 'User Input Here'
-    #     required: true
+    inputs:
+      name:
+        type: choice
+        description: want something?
+        options: 
+        - drinks
+        - food
+        - snacks
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
