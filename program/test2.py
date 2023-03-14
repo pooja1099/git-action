@@ -1,5 +1,4 @@
-import os
+import sys 
 
-result = os.environ["inputs.name.options"]
-
+result = int(sys.argv[1])
 print(result)
