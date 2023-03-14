@@ -44,7 +44,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: print
-        run: "{{github.event.inputs.name}}"
+        run: "${{github.event.inputs.name}}"
   # This workflow contains a single job called "build"
   job1:
     # The type of runner that the job will run on
