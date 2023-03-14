@@ -1,5 +1,5 @@
-import os
+import sys
 
-result = os.environ["options"]
+result = sys.environ["options"]
 
 print(result)
