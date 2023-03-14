@@ -1,5 +1,5 @@
 import os
 
-result = os.environ["name"]
+result = os.environ["name.options"]
 
 print(result)
