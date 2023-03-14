@@ -23,6 +23,9 @@ on:
       message:
         description: hiiiiii
         required: true
+
+  env: 
+    a: "${{github.event.inputs.name.options}}"     
   
   # workflow_call:
   #   inputs:
@@ -43,7 +46,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: print
-        run: "${{github.event.inputs.name.options}}"
+        run: |
+          cd program
+          python test2.py $a
   # This workflow contains a single job called "build"
   job1:
     # The type of runner that the job will run on
