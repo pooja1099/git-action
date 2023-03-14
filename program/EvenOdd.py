@@ -1,6 +1,7 @@
-
+import sys 
 #OddEven
-num = int(input("Enter a number: "))
+num = int(sys.argv[1])
+
 if (num % 2) == 0:
    print("{0} is Even".format(num))
 else:
